@@ -5,25 +5,27 @@ function possition_top()
 } 
 function possition_left()
 {  
-    $('.bug').css("left",$('.bug').position().left+15);
+    $('.bug').css("left",$('.bug').position().left+15+'px');
 } 
 function possition_right()
 {  
-    $('.bug').css("left",$('.bug').position().left-15);
+    $('.bug').css("left",$('.bug').position().left-15+'px');
 } 
 
 function position_bottom()
 {
-    $('.bug').css("top",$('.bug').position().top-15);
+    $('.bug').css("top",$('.bug').position().top-15+'px');
 }
 function jump()
 {
     const prom= new Promise((resolve,reject)=>{
-        resolve($('.bug').css('animation','jumping .4s linear'));
+        resolve( $('.bug').css("top",$('.bug').position().top-150+'px'));
         reject();
     })
     prom.then(()=>
-    { setTimeout((()=>{$('.bug').removeAttr('style');}),350)})
+    { 
+        setTimeout((()=>{$('.bug').css("top",$('.bug').position().top+150+'px')}),350);
+    })
 }
 
 function pause()
@@ -51,14 +53,15 @@ $(document).on('keydown',(event)=>
 switch (code)
 {
     case 'KeyQ':case 'Escape':pause();break;
-    case 'ArrowRight':possition_left();break;
-    case 'ArrowLeft':possition_right();break;
-    case 'ArrowUp':position_bottom();break;
-    case 'ArrowDown':possition_top();break;
+    case 'ArrowRight':case 'KeyD':possition_left();break;
+    case 'ArrowLeft':case 'KeyA':possition_right();break;
+    case 'ArrowUp':case 'KeyW':position_bottom();break;
+    case 'ArrowDown':case 'KeyS':possition_top();break;
     case 'Space':jump();break;
     default:console.warn(code);
 }  
 });
+
 $(document).on('dblclick',(event)=>
 {
     let code= event.code;

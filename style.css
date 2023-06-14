@@ -1,12 +1,22 @@
 .display
 {
+    margin-left: auto;
+    margin-right: auto;
     border: 1px solid black;
     width: 95vw;
     height: 95vh;
     position: relative;
     box-sizing: border-box;
     display: flex;
+    flex-wrap: wrap;
     align-items: end;
+    justify-content: space-between;
+}
+.space
+{
+    width:9%;
+    height: 9%; 
+    border: none;
 }
 .bug
 {
@@ -22,12 +32,10 @@
 }
 .walk
 {
-    width: 150px;
-    height: 50px;
-    position: sticky;
-    background-color: black;
-    top: 550px;
-    left: 150px;
+    width: 9%;
+    height: 9%;
+     background-color: grey;
+    border: 1px solid black;
 }
 .setting
 { 
